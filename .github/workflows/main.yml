@@ -30,7 +30,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: example-app:latest
+          tags: agus3yoga/example-app:latest
 
 #    steps:
 #    - uses: actions/checkout@v3
