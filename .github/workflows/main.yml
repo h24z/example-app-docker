@@ -30,7 +30,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/example-app:latest
+          tags: example-app:latest
 
 #    steps:
 #    - uses: actions/checkout@v3
