@@ -1,8 +1,8 @@
 # build the image based on python:3.8-slim-buster image
-FROM python:3.8-slim-buster
+FROM python:3.9-slim-buster
 
 # metadata in the form of key=value about the maintainer of the image
-LABEL Maintainer_Name="Kunal Maurya" Maintainer_Email="krsm1470@gmail.com" 
+LABEL Maintainer_Name="agusty" Maintainer_Email="agusty91@gmail.com" 
 
 # the work directory inside the container
 WORKDIR /
