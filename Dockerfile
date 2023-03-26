@@ -1,5 +1,5 @@
 # build the image based on python:3.8-slim-buster image
-FROM python:3.9-slim-buster
+FROM python:3.11.2-slim-bullseye
 
 # metadata in the form of key=value about the maintainer of the image
 LABEL Maintainer_Name="agusty" Maintainer_Email="agusty91@gmail.com" 
