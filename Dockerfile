@@ -4,24 +4,28 @@ FROM python:3.11.2-slim-bullseye
 # metadata in the form of key=value about the maintainer of the image
 LABEL Maintainer_Name="agusty" Maintainer_Email="agusty91@gmail.com" 
 
+# Upgrade pip first to avoid future incompatibilies
+RUN pip install --upgrade pip >/dev/null 2>&1
+
 # the work directory inside the container
-WORKDIR /
+RUN useradd worker
+USER worker
+WORKDIR /home/worker/app
 
 # set enviournment variables 
 ENV FLASK_APP app.py
 ENV FLASK_ENV development
 
 # copy the requirements file inside the container
-COPY ./requirements.txt /requirements.txt
+COPY --chown=worker:worker requirements.txt requirements.txt
 
 # install the requirements using pip3
-RUN pip3 install -r requirements.txt
+RUN pip3 install --user -r requirements.txt
 
-RUN mkdir app
-WORKDIR /app
+ENV PATH="/home/worker/.local/bin:${PATH}"
 
 # copy the project artefects into the container under the root directory
-COPY . .
+COPY --chown=worker:worker . .
 
 # the command to run once we run the container 
 CMD python3 app.py
