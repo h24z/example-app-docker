@@ -10,7 +10,8 @@ COPY --chown=worker:worker . /home/worker/app/
 
 ENV PATH="/home/worker/.local/bin:${PATH}"
 ENV FLASK_APP /home/worker/app/app.py
-ENV FLASK_ENV development
+ENV FLASK_DEBUG=1
+ENV TEMPLATES_AUTO_RELOAD=1 
 
 RUN pip3 install --upgrade pip >/dev/null 2>&1
 RUN pip3 install --user -r /home/worker/app/requirements.txt

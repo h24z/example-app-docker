@@ -1,7 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
+from project_name import app, db
 import os
 
+
+app.app_context().push()
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db/db.sqlite'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
