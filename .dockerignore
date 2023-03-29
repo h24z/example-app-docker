@@ -1,0 +1,6 @@
+.github
+docker-compose.yml
+Dockerfile
+heroku.yml
+LICENSE
+Procfile

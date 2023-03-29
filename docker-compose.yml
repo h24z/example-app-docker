@@ -1,14 +1,14 @@
-version: '3.4'
+version: '3.8'
 
 services:
   app:
-    image: todolistdockerizedflaskwebapp
+    image: python:3.11.2-slim-bullseye
     build:
       context: .
       dockerfile: ./Dockerfile
     ports:
-      - 80:5000
+      - 9090:5000
     volumes:
-      - todolist.db:/app/db
+      - todolist.db:/home/worker/app/db
 volumes:
   todolist.db:

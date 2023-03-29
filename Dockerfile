@@ -17,15 +17,15 @@ ENV FLASK_APP app.py
 ENV FLASK_ENV development
 
 # copy the requirements file inside the container
-COPY --chown=worker:worker requirements.txt requirements.txt
+COPY --chown=worker:worker requirements.txt /home/worker/requirements.txt
 
 # install the requirements using pip3
-RUN pip3 install --user -r requirements.txt
+RUN pip3 install --user -r /home/worker/requirements.txt
 
-ENV PATH="/home/worker/.local/bin:${PATH}"
+ENV PATH="/home/worker/bin:${PATH}"
 
 # copy the project artefects into the container under the root directory
-COPY --chown=worker:worker . .
+COPY --chown=worker:worker . /home/worker/app/
 
 # the command to run once we run the container 
-CMD python3 app.py
+CMD python3 /home/worker/app/app.py
