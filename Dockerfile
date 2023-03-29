@@ -14,5 +14,6 @@ ENV FLASK_ENV development
 
 RUN pip3 install --upgrade pip >/dev/null 2>&1
 RUN pip3 install --user -r /home/worker/app/requirements.txt
+RUN rm -f /home/worker/app/requirements.txt
 
 CMD python3 /home/worker/app/app.py
